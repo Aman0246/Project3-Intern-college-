@@ -6,12 +6,11 @@ require("dotenv").config()
 mongoose.connect(process.env.MONGOCONNECT).then(()=>console.log("Database is connected....")).catch(()=>console.log("dataBase is not Connectd  ****"))
 const collegerRoute=require("./routes/collegeRoutes")
 const internRoute=require("./routes/internRoutes")
+const {collegeDetails}=require("./controllers/collegeController")
 
-app.use("/college",collegerRoute)
-app.use("/intern",internRoute)
-
-
-
+app.use("/functionup/colleges",collegerRoute)
+app.use("/functionup/interns",internRoute)
+app.get("/functionup/collegeDetails",collegeDetails)
 
 
 app.listen(process.env.PORT,()=>{

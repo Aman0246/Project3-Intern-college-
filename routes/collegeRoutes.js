@@ -1,7 +1,8 @@
 const express=require("express")
 const routes=express.Router()
-const {check}=require("../controllers/collegeController")
+const {createcolleges}=require("../controllers/collegeController")
 
-routes.get("/",check)
+routes.post("/",createcolleges)
+
 
 module.exports=routes
